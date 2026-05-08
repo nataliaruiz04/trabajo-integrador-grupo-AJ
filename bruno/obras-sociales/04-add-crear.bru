@@ -1,0 +1,20 @@
+meta {
+  name: Add - Crear obra social
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/obras-sociales
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "OSDE",
+    "descripcion": "Obra social de empresarios",
+    "porcentaje_descuento": 20,
+    "es_particular": 0
+  }
+}

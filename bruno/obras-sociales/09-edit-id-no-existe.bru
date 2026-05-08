@@ -1,0 +1,20 @@
+meta {
+  name: Edit - ID no existente (404)
+  type: http
+  seq: 9
+}
+
+put {
+  url: {{base_url}}/obras-sociales/999
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Fantasma",
+    "descripcion": "No existe",
+    "porcentaje_descuento": 10,
+    "es_particular": 0
+  }
+}

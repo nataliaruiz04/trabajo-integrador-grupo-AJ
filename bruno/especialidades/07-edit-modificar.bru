@@ -1,0 +1,17 @@
+meta {
+  name: Edit - Modificar especialidad
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{base_url}}/especialidades/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Pediatría General"
+  }
+}

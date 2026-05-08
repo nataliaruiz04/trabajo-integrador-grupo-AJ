@@ -1,0 +1,17 @@
+{
+  "name": "turnos-api",
+  "version": "1.0.0",
+  "description": "API REST - Sistema de Gestión de Turnos Médicos",
+  "license": "ISC",
+  "author": "Programación III 2026",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "node --watch src/app.js",
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.22.2"
+  }
+}

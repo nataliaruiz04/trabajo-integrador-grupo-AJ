@@ -1,0 +1,20 @@
+meta {
+  name: Edit - Modificar obra social
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{base_url}}/obras-sociales/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Jerárquicos Salud",
+    "descripcion": "Obra social jerárquicos actualizada",
+    "porcentaje_descuento": 15,
+    "es_particular": 0
+  }
+}

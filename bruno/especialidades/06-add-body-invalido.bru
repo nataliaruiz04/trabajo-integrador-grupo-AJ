@@ -1,0 +1,17 @@
+meta {
+  name: Add - Body inválido (400)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_url}}/especialidades
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": ""
+  }
+}

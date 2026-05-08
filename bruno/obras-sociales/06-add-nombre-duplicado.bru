@@ -1,0 +1,20 @@
+meta {
+  name: Add - Nombre duplicado (409)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_url}}/obras-sociales
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Jerárquicos",
+    "descripcion": "Duplicado",
+    "porcentaje_descuento": 10,
+    "es_particular": 0
+  }
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Add - Crear particular (es_particular = 1)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_url}}/obras-sociales
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Particular",
+    "descripcion": "Pago particular sin obra social",
+    "porcentaje_descuento": 0,
+    "es_particular": 1
+  }
+}

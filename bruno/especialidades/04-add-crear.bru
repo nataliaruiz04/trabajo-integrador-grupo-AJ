@@ -1,0 +1,17 @@
+meta {
+  name: Add - Crear especialidad
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/especialidades
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Cardiología"
+  }
+}

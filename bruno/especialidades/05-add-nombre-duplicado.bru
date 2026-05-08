@@ -1,0 +1,17 @@
+meta {
+  name: Add - Nombre duplicado (409)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_url}}/especialidades
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "PEDIATRÍA"
+  }
+}
