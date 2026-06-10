@@ -2,11 +2,11 @@
 **Programación III – 2026 | Primera Entrega**
 
 **Integrantes**
-# Marcela Carina Machuca
-# Abril de los Angeles Quiroga
-# Natalia Noemi Ruiz
-# Leandro Vallejos
-# Camila Abigail Wagner
+- Marcela Carina Machuca
+- Abril de los Angeles Quiroga
+- Natalia Noemi Ruiz
+- Leandro Vallejos
+- Camila Abigail Wagner
 
 
 
