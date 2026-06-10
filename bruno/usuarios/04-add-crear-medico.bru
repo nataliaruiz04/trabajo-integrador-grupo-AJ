@@ -1,0 +1,23 @@
+meta {
+  name: Add - Crear usuario médico (rol 1)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/usuarios
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "documento": "31999001",
+    "apellido": "García",
+    "nombres": "Roberto",
+    "email": "garros@correo.com",
+    "contrasenia": "garros",
+    "foto_path": "",
+    "rol": 1
+  }
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Edit - Modificar médico
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{base_url}}/medicos/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id_especialidad": 2,
+    "matricula": 1000,
+    "descripcion": "Médico clínico actualizado",
+    "valor_consulta": 6000
+  }
+}

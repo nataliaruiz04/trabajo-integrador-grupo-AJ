@@ -1,0 +1,22 @@
+meta {
+  name: Edit - Modificar usuario
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{base_url}}/usuarios/5
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "documento": "41000111",
+    "apellido": "Lopez",
+    "nombres": "Jacinto Actualizado",
+    "email": "lopjac@correo.com",
+    "foto_path": "",
+    "rol": 2
+  }
+}

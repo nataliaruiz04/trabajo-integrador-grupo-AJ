@@ -2,13 +2,10 @@ import express from 'express';
 import { testConexion } from './db/testConexion.js';
 import { router as v1EspecialidadesRutas } from './rutas/v1/especialidadesRutas.js';
 import { router as v1ObrasSocialesRutas } from './rutas/v1/obrasSocialesRutas.js';
-
-// Variables de entorno
-process.loadEnvFile();
+import { router as v1UsuariosRutas } from './rutas/v1/usuariosRutas.js';
+import { router as v1MedicosRutas } from './rutas/v1/medicosRutas.js';
 
 const app = express();
-
-const PUERTO = process.env.PUERTO || 3000;
 
 // Middlewares globales
 app.use(express.json());
@@ -24,6 +21,8 @@ app.get('/', (req, res) => {
 // Rutas v1
 app.use('/api/v1/especialidades', v1EspecialidadesRutas);
 app.use('/api/v1/obras-sociales', v1ObrasSocialesRutas);
+app.use('/api/v1/usuarios', v1UsuariosRutas);
+app.use('/api/v1/medicos', v1MedicosRutas);
 
 // Ruta no encontrada (404)
 app.use((req, res) => {
@@ -32,6 +31,10 @@ app.use((req, res) => {
         mensaje: `Ruta ${req.method} ${req.path} no encontrada`
     });
 });
+
+// Variables de entorno
+process.loadEnvFile();
+const PUERTO = process.env.PUERTO || 3000;
 
 app.listen(PUERTO, () => {
     console.log(`Servidor iniciado correctamente en puerto ${PUERTO}`);

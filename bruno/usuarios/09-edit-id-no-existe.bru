@@ -1,0 +1,22 @@
+meta {
+  name: Edit - ID no existente (404)
+  type: http
+  seq: 9
+}
+
+put {
+  url: {{base_url}}/usuarios/999
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "documento": "99999999",
+    "apellido": "Fantasma",
+    "nombres": "Test",
+    "email": "fantasma@correo.com",
+    "foto_path": "",
+    "rol": 2
+  }
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Add - Body inválido (400)
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{base_url}}/usuarios
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "documento": "",
+    "apellido": "Test",
+    "nombres": "Test",
+    "email": "no-es-email",
+    "contrasenia": "test123",
+    "rol": 5
+  }
+}

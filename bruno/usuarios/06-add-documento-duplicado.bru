@@ -1,0 +1,23 @@
+meta {
+  name: Add - Documento duplicado (409)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_url}}/usuarios
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "documento": "31000111",
+    "apellido": "Test",
+    "nombres": "Test",
+    "email": "test@correo.com",
+    "contrasenia": "test123",
+    "foto_path": "",
+    "rol": 2
+  }
+}

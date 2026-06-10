@@ -1,0 +1,20 @@
+meta {
+  name: Add - Body inválido (400)
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{base_url}}/medicos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id_usuario": 0,
+    "id_especialidad": 1,
+    "matricula": -5,
+    "valor_consulta": -100
+  }
+}

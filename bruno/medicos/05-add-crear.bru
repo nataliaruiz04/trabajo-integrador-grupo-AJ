@@ -1,0 +1,21 @@
+meta {
+  name: Add - Crear médico
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_url}}/medicos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id_usuario": 1,
+    "id_especialidad": 1,
+    "matricula": 5000,
+    "descripcion": "Médico pediatra con 10 años de experiencia",
+    "valor_consulta": 8000
+  }
+}

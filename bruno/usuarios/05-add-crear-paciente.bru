@@ -1,0 +1,23 @@
+meta {
+  name: Add - Crear usuario paciente (rol 2)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_url}}/usuarios
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "documento": "41999001",
+    "apellido": "Romero",
+    "nombres": "Carla",
+    "email": "romcar@correo.com",
+    "contrasenia": "romcar",
+    "foto_path": "",
+    "rol": 2
+  }
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Add - Matrícula duplicada (409)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_url}}/medicos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id_usuario": 1,
+    "id_especialidad": 1,
+    "matricula": 1000,
+    "descripcion": "Test duplicado",
+    "valor_consulta": 5000
+  }
+}
