@@ -10,16 +10,24 @@ export default class UsuariosServicio {
         return this.usuarios.buscarTodos();
     }
 
-    buscarPorId = (id) => {
-        return this.usuarios.buscarPorId(id);
+    buscarPorId = (id_usuario) => {
+        return this.usuarios.buscarPorId(id_usuario);
+    }
+
+    buscar = (email, contrasenia) => {
+        return this.usuarios.buscar(email, contrasenia);
     }
 
     crear = (datos) => {
         return this.usuarios.crear(datos);
     }
 
-    modificar = (id, datos) => {
-        return this.usuarios.modificar(id, datos);
+    modificar = async (id_usuario, datos) => {
+        const existe = await this.usuarios.buscarPorId(id_usuario);
+        if (!existe) {
+            return null;
+        }
+        return this.usuarios.modificar(id_usuario, datos);
     }
 
     borrar = (id) => {
