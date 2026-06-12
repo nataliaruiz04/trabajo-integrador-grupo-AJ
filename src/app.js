@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config({ path: './.env' });
+
 import express from 'express';
 import fs from 'fs';
 import morgan from 'morgan';
@@ -12,8 +15,8 @@ import { router as v1ObrasSocialesRutas } from './rutas/v1/obrasSocialesRutas.js
 import { router as v1UsuariosRutas } from './rutas/v1/usuariosRutas.js';
 import { router as v1MedicosRutas } from './rutas/v1/medicosRutas.js';
 import { router as v1AuthRutas } from './rutas/v1/authRutas.js';
-
-process.loadEnvFile();
+import { router as v1PacientesRutas } from './rutas/v1/pacientesRutas.js';
+import { router as v1TurnosReservasRutas } from './rutas/v1/turnosReservasRutas.js';
 
 const app = express();
 await testConexion();
@@ -44,6 +47,8 @@ app.use('/api/v1/medicos', v1MedicosRutas);
 // Rutas protegidas con JWT
 app.use('/api/v1/especialidades', passport.authenticate('jwt', { session: false }), v1EspecialidadesRutas);
 app.use('/api/v1/usuarios', passport.authenticate('jwt', { session: false }), v1UsuariosRutas);
+app.use('/api/v1/pacientes', passport.authenticate('jwt', { session: false }), v1PacientesRutas);
+app.use('/api/v1/turnos-reservas', passport.authenticate('jwt', { session: false }), v1TurnosReservasRutas);
 
 // Ruta no encontrada
 app.use((req, res) => {

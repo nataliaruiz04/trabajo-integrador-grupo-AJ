@@ -23,11 +23,13 @@ const estrategia = new LocalStrategy({
 
 const validacion = new JwtStrategy({
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.JWT_SECRET
+    //secretOrKey: process.env.JWT_SECRET
+    secretOrKey: 'claveSecretaSuperSegura2026'
 },
     async (jwtPayload, done) => {
         const usuariosServicio = new UsuariosServicio();
         const usuario = await usuariosServicio.buscarPorId(jwtPayload.id_usuario);
+        console.log('usuario encontrado:', usuario);
         if (!usuario) {
             return done(null, false, { mensaje: 'Token incorrecto!' });
         }

@@ -1,0 +1,28 @@
+meta {
+  name: Add - Crear turno
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:3000/api/v1/turnos-reservas
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+    "id_medico": 1,
+    "id_paciente": 1,
+    "fecha_hora": "2026-06-20 10:00:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

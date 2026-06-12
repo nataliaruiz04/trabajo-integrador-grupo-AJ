@@ -1,0 +1,28 @@
+meta {
+  name: Add - Crear turno nuevo
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/turnos-reservas
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c3VhcmlvIjoiTWFyY2VsbyBMb3BleiIsInJvbCI6MSwiaWF0IjoxNzgxMjIzNzE1LCJleHAiOjE3ODEyMjczMTV9.aqD8ju4TGX4d_FYv_5WyNpoRgysz5uFPl2lvzBzIY1Q
+}
+
+body:json {
+  {
+    "id_medico": 1,
+    "id_paciente": 1,
+    "fecha_hora": "2026-06-20 10:00:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

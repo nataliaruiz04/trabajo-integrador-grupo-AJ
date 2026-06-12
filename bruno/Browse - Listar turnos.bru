@@ -1,0 +1,20 @@
+meta {
+  name: Browse - Listar turnos
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:3000/api/v1/turnos-reservas
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c3VhcmlvIjoiTWFyY2VsbyBMb3BleiIsInJvbCI6MSwiaWF0IjoxNzgxMjIyODY0LCJleHAiOjE3ODEyMjY0NjR9.T_M3pSw_Enr3XOvHN4OwNkrB8DMv9BZ2jn5jX84Pc3A
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
