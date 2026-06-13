@@ -1,22 +1,19 @@
 import express from 'express';
 import ObrasSocialesControlador from '../../controladores/obrasSocialesControlador.js';
+import autorizarUsuarios from '../../middlewares/autorizarUsuarios.js';
+import TransformarDTO from '../../middlewares/transformarDTOs.js';
 
 const router = express.Router();
 const obrasSocialesControlador = new ObrasSocialesControlador();
+const transformarDTO = new TransformarDTO();
 
-// Browse - listar todas
+// Browse y Read - todos pueden ver (ruta pública)
 router.get('/', obrasSocialesControlador.buscarTodas);
-
-// Read - obtener por id
 router.get('/:id', obrasSocialesControlador.buscarPorId);
 
-// Add - crear nueva
-router.post('/', obrasSocialesControlador.crear);
-
-// Edit - modificar existente
-router.put('/:id', obrasSocialesControlador.modificar);
-
-// Delete - baja lógica
-router.delete('/:id', obrasSocialesControlador.borrar);
+// Add, Edit, Delete - solo administrador
+router.post('/', autorizarUsuarios([3]), transformarDTO.obrasSocialesCrearDTO, obrasSocialesControlador.crear);
+router.put('/:id', autorizarUsuarios([3]), transformarDTO.obrasSocialesActualizarDTO, obrasSocialesControlador.modificar);
+router.delete('/:id', autorizarUsuarios([3]), obrasSocialesControlador.borrar);
 
 export { router };

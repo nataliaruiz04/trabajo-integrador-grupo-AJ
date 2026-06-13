@@ -1,22 +1,20 @@
 import express from 'express';
 import EspecialidadesControlador from '../../controladores/especialidadesControlador.js';
+import autorizarUsuarios from '../../middlewares/autorizarUsuarios.js';
 
 const router = express.Router();
 const especialidadesControlador = new EspecialidadesControlador();
 
-// Browse - listar todas
+// Browse - todos los roles pueden listar
 router.get('/', especialidadesControlador.buscarTodas);
 
-// Read - obtener por id
+// Read - todos los roles pueden ver
 router.get('/:id', especialidadesControlador.buscarPorId);
 
-// Add - crear nueva
-router.post('/', especialidadesControlador.crear);
-
-// Edit - modificar existente
-router.put('/:id', especialidadesControlador.modificar);
-
-// Delete - baja lógica
-router.delete('/:id', especialidadesControlador.borrar);
+// Add, Edit, Delete - solo administrador
+router.post('/', autorizarUsuarios([3]), especialidadesControlador.crear);
+router.put('/:id', autorizarUsuarios([3]), especialidadesControlador.modificar);
+router.delete('/:id', autorizarUsuarios([3]), especialidadesControlador.borrar);
 
 export { router };
+

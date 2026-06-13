@@ -1,22 +1,17 @@
 import express from 'express';
 import UsuariosControlador from '../../controladores/usuariosControlador.js';
+import autorizarUsuarios from '../../middlewares/autorizarUsuarios.js';
 
 const router = express.Router();
 const usuariosControlador = new UsuariosControlador();
 
-// Browse - listar todos
-router.get('/', usuariosControlador.buscarTodos);
+// Browse y Read - solo administrador
+router.get('/', autorizarUsuarios([3]), usuariosControlador.buscarTodos);
+router.get('/:id', autorizarUsuarios([3]), usuariosControlador.buscarPorId);
 
-// Read - obtener por id
-router.get('/:id', usuariosControlador.buscarPorId);
-
-// Add - crear nuevo
-router.post('/', usuariosControlador.crear);
-
-// Edit - modificar existente
-router.put('/:id', usuariosControlador.modificar);
-
-// Delete - baja lógica
-router.delete('/:id', usuariosControlador.borrar);
+// Add, Edit, Delete - solo administrador
+router.post('/', autorizarUsuarios([3]), usuariosControlador.crear);
+router.put('/:id', autorizarUsuarios([3]), usuariosControlador.modificar);
+router.delete('/:id', autorizarUsuarios([3]), usuariosControlador.borrar);
 
 export { router };
